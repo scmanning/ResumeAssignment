@@ -1,0 +1,82 @@
+/* color pallette generated using coolors.co and SproutAndGrow-500px.png as the input image */
+/* NOTE: using the values as css variables since that's the format coolors.co exported them in, and it keeps the colors easier to understand */
+:root {
+    /* CSS HEX */
+    --black-olive: #312C1Fff;
+    --lion: #BF955Bff;
+    --dark-moss-green: #3A4D0Bff;
+    --rich-black: #171C25ff;
+    --smoky-black: #16140Cff;
+    --coyote: #75663Fff;
+    --raw-umber: #A0683Aff;
+    --buff: #E4B388ff;
+    --fern-green: #617038ff;
+    --dark-green: #172503ff;
+
+    /* CSS HSL */
+    /* same values, just hsla format in case these are more useful to switch to later in the project */
+    /* --black-olive: hsla(43, 23%, 16%, 1);
+    --lion: hsla(35, 44%, 55%, 1);
+    --dark-moss-green: hsla(77, 75%, 17%, 1);
+    --rich-black: hsla(219, 23%, 12%, 1);
+    --smoky-black: hsla(48, 29%, 7%, 1);
+    --coyote: hsla(43, 30%, 35%, 1);
+    --raw-umber: hsla(27, 47%, 43%, 1);
+    --buff: hsla(28, 63%, 71%, 1);
+    --fern-green: hsla(76, 33%, 33%, 1);
+    --dark-green: hsla(85, 85%, 8%, 1); */
+}
+
+/* GLOBAL STYLES
+--------------------------------------*/
+
+/* links */
+a {
+    color: var(--fern-green);
+}
+a:hover {
+    color: var(--lion);
+    text-decoration: none; /* remove underline when hovered */
+}
+.btn {
+    background-color: var(--black-olive);
+    color: var(--coyote);
+    text-decoration: none;
+}
+
+/* Resume page styles
+--------------------------------------*/
+
+.resume body {
+    /* background: green; */
+    /* background: var(--buff); */
+    background-image: url(../images/pexels-fauxels-3183152.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.resume main {
+    background-color: rgb(255 255 255 / 0.9);
+}
+
+/* HEADER
+--------------------------------------*/
+
+/* Projects
+--------------------------------------*/
+
+/* Work Experience
+--------------------------------------*/
+
+/* Education
+--------------------------------------*/
+
+/* FOOTER
+--------------------------------------*/
+footer {
+    color: var(--buff);
+    background-color: var(--rich-black);
+}
+footer img {
+    max-width: 64px;
+}
