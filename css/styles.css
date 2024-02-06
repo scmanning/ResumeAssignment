@@ -1,8 +1,8 @@
-/* color pallette generated using coolors.co and SproutAndGrow-500px.png as the input image */
-/* NOTE: using the values as css variables since that's the format coolors.co exported them in, and it keeps the colors easier to understand */
 :root {
-    /* CSS HEX */
-    --black-olive: #312C1Fff;
+    /* Lesson 3 color palette generated using coolors.co and SproutAndGrow-500px.png as the input image */
+    /* NOTE: using the values as css variables since that's the format coolors.co exported them in, and it keeps the colors easier to understand */
+
+    /* --black-olive: #312C1Fff;
     --lion: #BF955Bff;
     --dark-moss-green: #3A4D0Bff;
     --rich-black: #171C25ff;
@@ -11,72 +11,197 @@
     --raw-umber: #A0683Aff;
     --buff: #E4B388ff;
     --fern-green: #617038ff;
-    --dark-green: #172503ff;
+    --dark-green: #172503ff; */
 
-    /* CSS HSL */
-    /* same values, just hsla format in case these are more useful to switch to later in the project */
-    /* --black-olive: hsla(43, 23%, 16%, 1);
-    --lion: hsla(35, 44%, 55%, 1);
-    --dark-moss-green: hsla(77, 75%, 17%, 1);
-    --rich-black: hsla(219, 23%, 12%, 1);
-    --smoky-black: hsla(48, 29%, 7%, 1);
-    --coyote: hsla(43, 30%, 35%, 1);
-    --raw-umber: hsla(27, 47%, 43%, 1);
-    --buff: hsla(28, 63%, 71%, 1);
-    --fern-green: hsla(76, 33%, 33%, 1);
-    --dark-green: hsla(85, 85%, 8%, 1); */
+    /* Lesson 4 - new color palette */
+    /* from https://coolors.co/386641-6a994e-a7c957-f2e8cf-bc4749 */
+    --hunter-green: #386641ff;
+    --asparagus: #6a994eff;
+    --yellow-green: #a7c957ff;
+    --parchment: #f2e8cfff;
+    --bittersweet-shimmer: #bc4749ff;
+    --dark-green: #172503ff;
 }
 
 /* GLOBAL STYLES
 --------------------------------------*/
 
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--yellow-green);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* 
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+/* html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+} */
+
+.content-wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 900px;
+}
+
 /* links */
 a {
-    color: var(--fern-green);
+    color: var(--asparagus);
 }
+
 a:hover {
-    color: var(--lion);
+    color: var(--bittersweet-shimmer);
     text-decoration: none; /* remove underline when hovered */
 }
+
 .btn {
-    background-color: var(--black-olive);
-    color: var(--coyote);
+    background-color: var(--dark-green);
+    color: var(--yellow-green);
     text-decoration: none;
 }
 
 /* Resume page styles
 --------------------------------------*/
 
-.resume body {
-    /* background: green; */
-    /* background: var(--buff); */
+/* .resume {
     background-image: url(../images/pexels-fauxels-3183152.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
-.resume main {
+/* .resume body {
     background-color: rgb(255 255 255 / 0.9);
-}
+} */
 
 /* HEADER
 --------------------------------------*/
 
+.resume header::before {
+    /* background: url(../images/SproutAndGrow-500px.png) center no-repeat; */
+    background: url(../images/pexels-fauxels-3183152.jpg) no-repeat;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 375px;
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+}
+
+.resume .non-footer-content {
+    flex: 1 0 auto;
+}
+
+.resume-section {
+    margin-bottom: 50px;
+}
+.resume-section h2 {
+    border-bottom: 2px dashed var(--asparagus);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-green);
+    /* Poppins font from google web fonts */
+    font-family: Poppins, sans-serif;
+    /* use the font-effect-3d class from google web fonts instead of text-shadow */
+    /* text-shadow: 4px 4px 4px #aaa; */
+}
+.download-link {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
 /* Projects
 --------------------------------------*/
+/* .project-item {
+    display: flow-root;
+    margin: 30px 0;
+}
+
+.project-item img {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+} */
+
+/* change project section to use a grid like work experience */
+.project-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 20px;
+}
+
+.project-item .project-thumbnail img {
+    width: 300px;
+}
 
 /* Work Experience
 --------------------------------------*/
+.work-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 20px;
+}
 
 /* Education
 --------------------------------------*/
+/* have education use a similar grid layout to work experience */
+.education-item {
+    display: grid;
+    grid-template-columns: 300px 5fr;
+    column-gap: 20px;
+}
 
+/* make the first paragraph in the education summary bold */
+.education-summary p:first-child {
+    font-weight: bold;
+}
 /* FOOTER
 --------------------------------------*/
 footer {
-    color: var(--buff);
-    background-color: var(--rich-black);
+    color: var(--yellow-green);
+    background-color: var(--dark-green);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
+
+footer h2 {
+    /* need to override the h2 color from the global styles */
+    color: var(--yellow-green);
+}
+
 footer img {
     max-width: 64px;
+}
+
+.socials {
+    list-style-type: none;
+    padding: 0;
+}
+
+.socials li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.socials img {
+    width: 32px;
+}
+.socials img:hover {
+    /* filter: brightness(1.5); */
+    opacity: 0.5;
 }
