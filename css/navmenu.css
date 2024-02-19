@@ -1,0 +1,84 @@
+/* style all nav menu links, both top-level and below */
+
+nav {
+    width: 100%;
+}
+
+nav a {
+    /* display: block;
+    padding: 10px 20px; */
+    text-decoration: none;
+    color: darkgreen;
+}
+
+/* style all the nav menu unordered lists, both top-level and below */
+nav ul {
+    list-style: none;
+    /* margin: 0;
+    padding: 0;
+    text-align: left; */
+}
+
+/* style list items at both levels to look like boxes */
+nav li {
+    display: inline-block;
+    position: relative;
+
+
+	background: #888; /* Change Background color of list items */
+	padding: 15px 20px; /* add space around text */
+	font: bold 12px/18px sans-serif;
+	cursor: pointer; /* Change mouse cursor to pointer */
+	border-radius: 5px;
+    border-style: double;
+}
+
+nav li:hover {
+	background: #fff; /* change color on hover */
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.nav-menu li {
+    display: inline-block;
+    position: relative;
+}
+
+.nav-menu li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style the submenu */
+.nav-menu li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 0;
+}
+
+.nav-menu li:hover ul {
+    display: block;
+}
+
+.nav-menu li ul li {
+    display: block;
+}
+
+.nav-menu li ul li a {
+    padding: 10px 20px;
+    color: #333;
+}
+
+.nav-menu li ul li:hover a {
+    background-color: #f0f0f0;
+}
