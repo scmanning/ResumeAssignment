@@ -13,6 +13,10 @@ nav a {
     color: darkgreen;
 }
 
+nav a:hover {
+    text-decoration: underline
+}
+
 /*
  * style all the nav menu unordered lists, 
  * both top-level and below, to remove bullets
