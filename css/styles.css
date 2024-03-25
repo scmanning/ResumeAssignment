@@ -53,6 +53,14 @@ body {
     padding: 10px;
     max-width: 900px;
 }
+/* on smaller screens, remove the vertical padding since it causes too much space between sections, 
+   but keep the horizontal padding since we don't want the content right up to the edge. */
+@media screen and (max-width: 600px) {
+    .content-wrapper {
+        padding: 0px 10px;
+    }
+    
+}
 
 /* links */
 a {
@@ -95,6 +103,14 @@ a:hover {
     height: 375px;
 }
 
+/* make the header image take less vertical space on smaller screens */
+@media screen and (max-width: 600px) {
+    .resume header::before {
+        height: 200px;
+    }
+    /* NOTE: don't need to change the sizes of the h1 and h2 since the text still fits at 360px width */
+}
+
 .resume {
     display: flex;
     flex-direction: column;
@@ -107,8 +123,21 @@ a:hover {
 .resume-section {
     margin-bottom: 50px;
 }
+/* reduce margin-bottom so there's not so much empty space on smaller screens */
+@media screen and (max-width: 600px) {
+    .resume-section {
+        margin-bottom: 10px;
+    }
+}
 .resume-section h2 {
     border-bottom: 2px dashed var(--asparagus);
+}
+@media screen and (max-width: 600px) {
+    /* the default styles for h2 include too much vertical margin for smaller screens */
+    /* just keep the top margin for space between sections but no need for the bottom margin */
+    .resume-section h2 {
+        margin: 10px 0px 0px 0px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -117,6 +146,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Poppins, sans-serif;
     /* use the font-effect-3d class from google web fonts instead of text-shadow */
     /* text-shadow: 4px 4px 4px #aaa; */
+}
+/* on small screens we want to reduce the margin amount on the header elements from its browser default of 1em */
+@media screen and (max-width: 600px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0.25em 0;
+    }
 }
 .download-link {
     position: fixed;
@@ -138,6 +173,11 @@ h1, h2, h3, h4, h5, h6 {
 } */
 
 /* change project section to use a grid like work experience */
+/* NOTE: by using a grid at all sizes, we avoid having to introduce a media query to change away from float
+   and switch to a grid like the CSS Essentials tutorial did.  This was a better choice in our situation
+   because we have a small enough amount of text for the one project entry that float doesn't have any value
+   because it doesn't need to wrap around the image. If our project text was longer, float would be a better 
+   choice at larger displays and we would switch to grid at a smaller size (like 860px from the exercise). */
 .project-item {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -148,6 +188,19 @@ h1, h2, h3, h4, h5, h6 {
     width: 300px;
 }
 
+/* below 600px, switch to a single column layout */
+@media screen and (max-width: 600px) {
+    .project-item {
+        grid-template-columns: 1fr;
+    }
+
+    /* also need to change the thumbnail width to be 100% of the column instead of fixed width */
+    .project-item .project-thumbnail img {
+        width: 100%;
+    }
+}
+
+
 /* Work Experience
 --------------------------------------*/
 .work-item {
@@ -156,12 +209,19 @@ h1, h2, h3, h4, h5, h6 {
     column-gap: 20px;
 }
 
+/* below 600px, switch to a single column layout */
+@media screen and (max-width: 600px) {
+    .work-item {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Education
 --------------------------------------*/
 /* have education use a similar grid layout to work experience */
 .education-item {
     display: grid;
-    grid-template-columns: 300px 5fr;
+    grid-template-columns: 300px 1fr;
     column-gap: 20px;
 }
 
@@ -169,6 +229,13 @@ h1, h2, h3, h4, h5, h6 {
 .education-summary p:first-child {
     font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+    .education-item {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* FOOTER
 --------------------------------------*/
 footer {
@@ -204,4 +271,20 @@ footer img {
 .socials img:hover {
     /* filter: brightness(1.5); */
     opacity: 0.5;
+}
+/* below 500px the socials started wrapping to a new line, so we'll change them to a single column
+   by switching the flex-direction to column */
+@media screen and (max-width: 500px) {
+    footer {
+        flex-direction: column;
+        /* center align the content of the footer since we're a single column here instead of leaving them left-aligned */
+        text-align: center;
+    }
+    /* as a single column there's too much vertical space between the text and icons, so reduce it */
+    footer h2 {
+        margin: 10px 0px 0px 0px;
+    }
+    .socials {
+        margin: 0;
+    }
 }
